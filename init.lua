@@ -18,11 +18,14 @@ vim.cmd([[
 	set autoindent
 	filetype plugin indent on
 	set expandtab
-	set shiftwidth=2
+	set shiftwidth=4
 
 	" Syntax lighlighting
 	syntax on
 
 	" Use system clipboard
 	set clipboard=unnamedplus
+
+        " Use dynamic title
+        set title
 ]])
