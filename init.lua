@@ -8,7 +8,7 @@ vim.cmd([[
 	set background=dark
 
 	" Set theme
-	colorscheme catppuccin-mocha
+	colorscheme cyberdream
 
 	" Enable line number
 	set number
