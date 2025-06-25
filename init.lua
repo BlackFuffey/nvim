@@ -23,9 +23,13 @@ vim.cmd([[
 	" Syntax lighlighting
 	syntax on
 
-	" Use system clipboard
+	" Use system clipboard by default
 	set clipboard=unnamedplus
 
         " Use dynamic title
         set title
+
+        " Set wrapping mode
+        set wrap
+        set linebreak
 ]])
