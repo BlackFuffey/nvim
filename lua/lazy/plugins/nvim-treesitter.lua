@@ -43,7 +43,10 @@ return {
             'markdown', 'markdown_inline', 'xml',
 
             -- Miscellaneous
-            'java', 'kotlin', 'llvm', 'python', 'zig'
+            'java', 'kotlin', 'llvm', 'python', 'zig',
+
+            -- snacks.nvim image
+            'latex', 'scss', 'norg', 'svelte', 'typst', 'vue'
         })
 
         -- Hacky but clean

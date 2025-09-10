@@ -32,4 +32,6 @@ vim.cmd([[
         " Set wrapping mode
         set wrap
         set linebreak
+
+        " Disable Animation
 ]])

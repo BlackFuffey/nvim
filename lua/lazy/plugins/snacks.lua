@@ -15,6 +15,7 @@ return {
             -- Enable or disable features when big file detected
             ---@param ctx {buf: number, ft:string}
             setup = function(ctx)
+
                 if vim.fn.exists(":NoMatchParen") ~= 0 then
                     vim.cmd([[NoMatchParen]])
                 end
@@ -65,7 +66,7 @@ return {
                 ---@param type snacks.image.Type image type
                 conceal = function(lang, type)
                     -- only conceal math expressions
-                    return type == "math"
+                    return false
                 end,
             },
             img_dirs = { "img", "images", "assets", "static", "public", "media", "attachments" },
@@ -122,12 +123,12 @@ return {
                     tpl = [[
         #set page(width: auto, height: auto, margin: (x: 2pt, y: 2pt))
         #show math.equation.where(block: false): set text(top-edge: "bounds", bottom-edge: "bounds")
-        #set text(size: 12pt, fill: rgb("${color}"))
+        #set text(size: 12pt, fill: rgb("ffffff"))
         ${header}
         ${content}]],
                 },
                 latex = {
-                    font_size = "Large", -- see https://www.sascha-frank.com/latex-font-size.html
+                    font_size = "normal", -- see https://www.sascha-frank.com/latex-font-size.html
                     -- for latex documents, the doc packages are included automatically,
                     -- but you can add more packages here. Useful for markdown documents.
                     packages = { "amsmath", "amssymb", "amsfonts", "amscd", "mathtools" },
@@ -137,7 +138,7 @@ return {
         \begin{document}
         ${header}
         { \${font_size} \selectfont
-          \color[HTML]{${color}}
+          \color[HTML]{ffffff}
         ${content}}
         \end{document}]],
                 },
@@ -162,11 +163,14 @@ return {
             --     "SnacksIndent8",
             -- },
         },
+        dashboard = { enabled = false },
+        explorer = { enabled = false },
         input = { enabled = true },
         picker = { enabled = true },
         notifier = { enabled = true },
         quickfile = { enabled = true },
         scope = { enabled = true },
+        scroll = { enabled = false },
         statuscolumn = { enabled = true },
         words = { enabled = true },
     },

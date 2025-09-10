@@ -7,7 +7,8 @@ return {
     config = function()
 
         require('render-markdown').setup({
-            render_modes = true
+            render_modes = true,
+            latex = { enabled = false },
         })
 
         local rmd = require('render-markdown')
