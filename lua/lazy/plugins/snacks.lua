@@ -15,7 +15,6 @@ return {
             -- Enable or disable features when big file detected
             ---@param ctx {buf: number, ft:string}
             setup = function(ctx)
-
                 if vim.fn.exists(":NoMatchParen") ~= 0 then
                     vim.cmd([[NoMatchParen]])
                 end
@@ -29,6 +28,7 @@ return {
             end,
         },
         image = {
+            enabled = true,
             formats = {
                 "png",
                 "jpg",
@@ -66,7 +66,7 @@ return {
                 ---@param type snacks.image.Type image type
                 conceal = function(lang, type)
                     -- only conceal math expressions
-                    return false
+                    return type == 'math'
                 end,
             },
             img_dirs = { "img", "images", "assets", "static", "public", "media", "attachments" },
@@ -93,9 +93,9 @@ return {
             -- icons used to show where an inline image is located that is
             -- rendered below the text.
             icons = {
-                math = "󰪚 ",
-                chart = "󰄧 ",
-                image = " ",
+                math = "󰪚 LaTeX",
+                chart = "󰄧 Chart",
+                image = " Image",
             },
             ---@class snacks.image.convert.Config
             convert = {
@@ -131,7 +131,7 @@ return {
                     font_size = "normal", -- see https://www.sascha-frank.com/latex-font-size.html
                     -- for latex documents, the doc packages are included automatically,
                     -- but you can add more packages here. Useful for markdown documents.
-                    packages = { "amsmath", "amssymb", "amsfonts", "amscd", "mathtools" },
+                    packages = { "amsmath", "amssymb", "amsfonts", "amscd", "mathtools", "mhchem", "chemfig" },
                     tpl = [[
         \documentclass[preview,border=0pt,varwidth,12pt]{standalone}
         \usepackage{${packages}}
@@ -174,8 +174,7 @@ return {
         statuscolumn = { enabled = true },
         words = { enabled = true },
     },
-    config = function()
-        -- Disable Animation
-        vim.g.snacks_animate = false
+    setup = function()
+        vim.ui.input = Snacks.input
     end
 }

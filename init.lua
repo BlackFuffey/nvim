@@ -33,5 +33,12 @@ vim.cmd([[
         set wrap
         set linebreak
 
-        " Disable Animation
+        " Search ignore case
+        set ignorecase
+        set smartcase
+
+        " Clear search on esc
+        "nnoremap <esc> :nohlsearch<CR><esc>
+
+
 ]])
